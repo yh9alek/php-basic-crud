@@ -15,7 +15,7 @@
             </div>
         </header>
         <section>
-            <div class="container">
+            <div class="taks__section container">
                 <div class="add">
                     <div class="message__container">
                         <h3 class="message">Task Updated Succesfully</h3>
@@ -28,7 +28,23 @@
                     </form>
                 </div>
                 <div class="table">
-
+                    <table>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                        <tr>
+                            <td class="title"><p>Title</p></td>
+                            <td class="desc"><p>Descripcion</p></td>
+                            <td class="date"><p>Date</p></td>
+                            <td class="act__td">
+                                <button class="upd__btn"><i class="fa-solid fa-marker"></i></button>
+                                <button class="del__btn"><i class="fa-solid fa-trash-can"></i></button>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </section>
