@@ -1,28 +1,13 @@
 <?php
-    class Connection {
-        private $server;
-        private $user;
-        private $pass;
-
-        public function __construct($server, $user, $pass) {
-            $this->server = $server;
-            $this->user = $user;
-            $this->pass = $pass;
-            return Connection::getConnection($this);
+    function getConnection($server, $user, $pass) {
+        try{
+            $conn = new PDO($server, $user, $pass);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $conn;
         }
-
-        public static function getConnection(Connection $obj) {
-            try{
-                $conn = new PDO($obj->server, $obj->user, $obj->pass);
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                return $conn;
-            }
-            catch(PDOException $ex) {
-                echo "Ocurrió un error: $ex";
-            }
-            return null;
+        catch(PDOException $ex) {
+            echo "An error occurred: $ex";
         }
+        return null;
     }
-
-    $connection = new Connection("mysql:host=localhost;dbname=php_crud;", "root", "");
 ?>
